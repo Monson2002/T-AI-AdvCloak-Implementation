@@ -1,0 +1,16 @@
+code/data/
+venv-TAI/
+
+code/generation/source_models/models
+code/generation/source_models/models.zip
+code/generation/source_models/IR_50-ArcFace-casia
+code/generation/source_models/IR_50-CosFace-casia
+code/generation/source_models/IR_50-Softmax-casia
+
+code/generation/mask_out_Privacy_Celebs
+code/generation/mask_out_Privacy_Commons
+
+code/generation/stage_1
+code/generation/stage_2
+
+code/evaluation/target_model

@@ -34,13 +34,14 @@ You can download the final checkpoint of AdvCloak model with two-stage training 
 To generate privacy masks of Privacy-Commons dataset, based on surrgate model "Resnet50-WebFace-ArcFace", with different approximation methods, and transferability enhancement methods, please do as follows. Other surrogate models can be used modifying "--pretrained". Other parameters, please refer to the code. 
 ```
 cd code/generation
-python mask_generation.py --query_image_dir ../data  --query_train_image_list  ../data/list/privacy_train_v3_10.lst  --pretrained_generator  ./models/stage_2_model/AdvCloak.pth  --mask_out  ./mask_out
+python mask_generation.py --query_image_dir ../data  --query_train_image_list  ../data/privacy_ms90w_train.lst  --pretrained_generator  ./stage_2/AdvCloak.pth  --mask_out  ./mask_out_Privacy_Commons
 ```
 
 To generate privacy masks of Privacy-Celebrities dataset, please do as follows.
 ```
 cd code/generation
-python mask_generation.py --query_image_dir ../data  --query_train_image_list  ../data/list/privacy_ms90w_train.lst  --pretrained_generator  ./models/stage_2_model/AdvCloak.pth  --mask_out  ./mask_out
+python mask_generation.py --query_image_dir ../data  --query_train_image_list  ../data/privacy_ms90w_train.lst  --pretrained_generator  ./stage_2/AdvCloak.pth  --mask_out  .
+/mask_out_Privacy_Celebs
 ```
 
 ### Privacy Mask Evaluation

@@ -44,7 +44,8 @@ def get_image_feature(img_dir, img_list_path, pretrained, gpu_id, batch_size, im
                       mask = None, img_save = None):
     img_list = open(img_list_path)
     #print('loading', model_path, model_num)
-    ctx = mx.gpu(gpu_id)
+    # ctx = mx.gpu(gpu_id)
+    ctx = mx.cpu()
     vec = pretrained.split(',')
     sym, arg_params, aux_params = mx.model.load_checkpoint(vec[0], int(vec[1]))
     all_layers = sym.get_internals()
@@ -194,9 +195,10 @@ def evaluation(gpu_id,query_img_feats_mask, query_img_feats, gallery_noise_feats
     gallery_num = gallery_noise_feats.shape[0]
     print(query_num, gallery_num)
 
-    query_img_feats_mask = mx.nd.array(query_img_feats_mask, ctx=mx.gpu(gpu_id))
-    query_img_feats = mx.nd.array(query_img_feats, ctx=mx.gpu(gpu_id))
-    gallery_noise_feats = mx.nd.array(gallery_noise_feats, ctx=mx.gpu(gpu_id))
+    query_img_feats_mask = mx.nd.array(query_img_feats_mask, ctx=mx.cpu()
+)
+    query_img_feats = mx.nd.array(query_img_feats, ctx=mx.cpu())
+    gallery_noise_feats = mx.nd.array(gallery_noise_feats, ctx=mx.cpu())
 
     correct_num_top1 = 0
     correct_num_top5 = 0
@@ -208,7 +210,7 @@ def evaluation(gpu_id,query_img_feats_mask, query_img_feats, gallery_noise_feats
                     continue
                 else:
                     query_feat = query_img_feats_mask[id * img_per_tmp + i]
-                    target_feat = mx.nd.zeros((1, 512), ctx=mx.gpu(gpu_id))
+                    target_feat = mx.nd.zeros((1, 512), ctx=mx.cpu())
                     target_feat[0] = query_img_feats[id * img_per_tmp + j]
                     
                     gallery_feat = mx.nd.concat(target_feat, gallery_noise_feats, dim=0)
@@ -285,9 +287,9 @@ def parse_arguments(argv):
     parser.add_argument('--test_img_per_id', type=int, help='', default=5)
     parser.add_argument('--gallery_image_type', default='MF2', help='query image type')
     parser.add_argument('--query_image_dir', default='../data', help='image path')
-    parser.add_argument('--query_train_image_list', default='../data/list/privacy_train_v3_10.lst',
+    parser.add_argument('--query_train_image_list', default='../data/privacy_train_v3_10.lst',
                         help='image path')
-    parser.add_argument('--query_test_image_list', default='../data/list/privacy_test_v3_5.lst',
+    parser.add_argument('--query_test_image_list', default='../data/privacy_test_v3_5.lst',
                         help='image path')
     parser.add_argument('--gallery_noise_dir', default='../data/Distractor', help='image path')
     parser.add_argument('--gallery_noise_list', default='../data/Distractor/lst',

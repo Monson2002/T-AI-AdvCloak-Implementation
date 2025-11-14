@@ -94,9 +94,9 @@ def parse_arguments(argv):
     parser.add_argument('--train_img_per_id', type=int, help='', default=10)
     parser.add_argument('--input_img_per_id', type=int, help='', default=10)
     parser.add_argument('--query_image_dir', default='../data', help='image path')
-    parser.add_argument('--query_train_image_list', default='../data/list/privacy_train_v3_10.lst',
+    parser.add_argument('--query_train_image_list', default='../code/data/privacy_ms90w_train.lst',
                         help='image path')
-    parser.add_argument('--pretrained_generator',default='./models/stage_2_model/AdvCloak.pth',help='generating mask')
+    parser.add_argument('--pretrained_generator',default='./models/stage_2/AdvCloak.pth',help='generating mask')
     parser.add_argument('--mask_out', default = './mask_out', help='msk path')
     parser.add_argument('--step', type=int, default=50, help='loss type')
     parser.add_argument('--start_id', type=int, default=-1, help='loss type')
