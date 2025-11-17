@@ -1,0 +1,206 @@
+nohup: ignoring input
+[17:45:17] ../src/nnvm/legacy_json_util.cc:208: Loading symbol saved by previous version v1.2.1. Attempting to upgrade...
+[17:45:17] ../src/nnvm/legacy_json_util.cc:216: Symbol successfully upgraded!
+[17:45:17] ../src/executor/graph_executor.cc:1991: Subgraph backend MKLDNN is activated.
+Namespace(gpu=-1, batch_size=500, lenth=10000, test_img_per_id=5, gallery_image_type='MF2', query_image_dir='../data/', query_train_image_list='../data/privacy_train_v3_10.lst', query_test_image_list='../data/privacy_test_v3_5.lst', gallery_noise_dir='../data/', gallery_noise_list='../data/common_distractor.lst', pretrained='./target_model/r50_webface_arc_bs/model,146', msk_dir='../generation/mask_out_Privacy_Commons/', img_train_save=None, img_test_save=None, log_save='./test_log/loss_log.log')
+processing 0
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 306, in <module>
+    main(parse_arguments(sys.argv[1:]))
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 276, in main
+    test(args.query_image_dir, args.query_train_image_list, args.query_test_image_list, args.test_img_per_id,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 249, in test
+    query_train_img_feats_mask = get_image_feature(query_image_dir, query_train_image_list, pretrained,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 130, in get_image_feature
+    img_feats = sklearn.preprocessing.normalize(img_feats)
+NameError: name 'sklearn' is not defined
+[17:54:33] ../src/nnvm/legacy_json_util.cc:208: Loading symbol saved by previous version v1.2.1. Attempting to upgrade...
+[17:54:33] ../src/nnvm/legacy_json_util.cc:216: Symbol successfully upgraded!
+Namespace(gpu=-1, batch_size=500, lenth=10000, test_img_per_id=5, gallery_image_type='MF2', query_image_dir='../data/', query_train_image_list='../data/privacy_train_v3_10.lst', query_test_image_list='../data/privacy_test_v3_5.lst', gallery_noise_dir='../data/', gallery_noise_list='../data/common_distractor.lst', pretrained='./target_model/r50_webface_cos_bs/model,82', msk_dir='../generation/mask_out_Privacy_Commons/', img_train_save=None, img_test_save=None, log_save='./test_log/loss_log.log')
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1903, in simple_bind
+    check_call(_LIB.MXExecutorSimpleBindEx(self.handle,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/base.py", line 246, in check_call
+    raise get_last_ffi_error()
+mxnet.base.MXNetError: Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 306, in <module>
+    main(parse_arguments(sys.argv[1:]))
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 276, in main
+    test(args.query_image_dir, args.query_train_image_list, args.query_test_image_list, args.test_img_per_id,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 249, in test
+    query_train_img_feats_mask = get_image_feature(query_image_dir, query_train_image_list, pretrained,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 55, in get_image_feature
+    model.bind(for_training=False, data_shapes=[('data', (batch_size, 3, image_size[0], image_size[1]))])
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/module.py", line 422, in bind
+    self._exec_group = DataParallelExecutorGroup(self._symbol, self._context,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 280, in __init__
+    self.bind_exec(data_shapes, label_shapes, shared_group)
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 383, in bind_exec
+    self.execs.append(self._bind_ith_exec(i, data_shapes_i, label_shapes_i,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 675, in _bind_ith_exec
+    executor = self.symbol.simple_bind(ctx=context, grad_req=self.grad_req,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1944, in simple_bind
+    raise RuntimeError(error_msg)
+RuntimeError: simple_bind error. Arguments:
+data: (500, 3, 112, 112)
+Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+[17:54:35] ../src/nnvm/legacy_json_util.cc:208: Loading symbol saved by previous version v1.2.1. Attempting to upgrade...
+[17:54:35] ../src/nnvm/legacy_json_util.cc:216: Symbol successfully upgraded!
+Namespace(gpu=-1, batch_size=500, lenth=10000, test_img_per_id=5, gallery_image_type='MF2', query_image_dir='../data/', query_train_image_list='../data/privacy_train_v3_10.lst', query_test_image_list='../data/privacy_test_v3_5.lst', gallery_noise_dir='../data/', gallery_noise_list='../data/common_distractor.lst', pretrained='./target_model/r50_webface_sFace/model_s64a80tb87c80d12,71', msk_dir='../generation/mask_out_Privacy_Commons/', img_train_save=None, img_test_save=None, log_save='./test_log/loss_log.log')
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1903, in simple_bind
+    check_call(_LIB.MXExecutorSimpleBindEx(self.handle,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/base.py", line 246, in check_call
+    raise get_last_ffi_error()
+mxnet.base.MXNetError: Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 306, in <module>
+    main(parse_arguments(sys.argv[1:]))
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 276, in main
+    test(args.query_image_dir, args.query_train_image_list, args.query_test_image_list, args.test_img_per_id,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 249, in test
+    query_train_img_feats_mask = get_image_feature(query_image_dir, query_train_image_list, pretrained,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 55, in get_image_feature
+    model.bind(for_training=False, data_shapes=[('data', (batch_size, 3, image_size[0], image_size[1]))])
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/module.py", line 422, in bind
+    self._exec_group = DataParallelExecutorGroup(self._symbol, self._context,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 280, in __init__
+    self.bind_exec(data_shapes, label_shapes, shared_group)
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 383, in bind_exec
+    self.execs.append(self._bind_ith_exec(i, data_shapes_i, label_shapes_i,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 675, in _bind_ith_exec
+    executor = self.symbol.simple_bind(ctx=context, grad_req=self.grad_req,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1944, in simple_bind
+    raise RuntimeError(error_msg)
+RuntimeError: simple_bind error. Arguments:
+data: (500, 3, 112, 112)
+Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+[17:54:37] ../src/nnvm/legacy_json_util.cc:208: Loading symbol saved by previous version v1.5.0. Attempting to upgrade...
+[17:54:37] ../src/nnvm/legacy_json_util.cc:216: Symbol successfully upgraded!
+Namespace(gpu=-1, batch_size=500, lenth=10000, test_img_per_id=5, gallery_image_type='MF2', query_image_dir='../data/', query_train_image_list='../data/privacy_train_v3_10.lst', query_test_image_list='../data/privacy_test_v3_5.lst', gallery_noise_dir='../data/', gallery_noise_list='../data/common_distractor.lst', pretrained='./target_model/m1_webface_soft/model,51', msk_dir='../generation/mask_out_Privacy_Commons/', img_train_save=None, img_test_save=None, log_save='./test_log/loss_log.log')
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1903, in simple_bind
+    check_call(_LIB.MXExecutorSimpleBindEx(self.handle,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/base.py", line 246, in check_call
+    raise get_last_ffi_error()
+mxnet.base.MXNetError: Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 306, in <module>
+    main(parse_arguments(sys.argv[1:]))
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 276, in main
+    test(args.query_image_dir, args.query_train_image_list, args.query_test_image_list, args.test_img_per_id,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 249, in test
+    query_train_img_feats_mask = get_image_feature(query_image_dir, query_train_image_list, pretrained,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 55, in get_image_feature
+    model.bind(for_training=False, data_shapes=[('data', (batch_size, 3, image_size[0], image_size[1]))])
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/module.py", line 422, in bind
+    self._exec_group = DataParallelExecutorGroup(self._symbol, self._context,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 280, in __init__
+    self.bind_exec(data_shapes, label_shapes, shared_group)
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 383, in bind_exec
+    self.execs.append(self._bind_ith_exec(i, data_shapes_i, label_shapes_i,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 675, in _bind_ith_exec
+    executor = self.symbol.simple_bind(ctx=context, grad_req=self.grad_req,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1944, in simple_bind
+    raise RuntimeError(error_msg)
+RuntimeError: simple_bind error. Arguments:
+data: (500, 3, 112, 112)
+Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+[17:54:38] ../src/nnvm/legacy_json_util.cc:208: Loading symbol saved by previous version v1.2.1. Attempting to upgrade...
+[17:54:38] ../src/nnvm/legacy_json_util.cc:216: Symbol successfully upgraded!
+Namespace(gpu=-1, batch_size=500, lenth=10000, test_img_per_id=5, gallery_image_type='MF2', query_image_dir='../data/', query_train_image_list='../data/privacy_train_v3_10.lst', query_test_image_list='../data/privacy_test_v3_5.lst', gallery_noise_dir='../data/', gallery_noise_list='../data/common_distractor.lst', pretrained='./target_model/ser50_webface_soft/model,25', msk_dir='../generation/mask_out_Privacy_Commons/', img_train_save=None, img_test_save=None, log_save='./test_log/loss_log.log')
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1903, in simple_bind
+    check_call(_LIB.MXExecutorSimpleBindEx(self.handle,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/base.py", line 246, in check_call
+    raise get_last_ffi_error()
+mxnet.base.MXNetError: Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 306, in <module>
+    main(parse_arguments(sys.argv[1:]))
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 276, in main
+    test(args.query_image_dir, args.query_train_image_list, args.query_test_image_list, args.test_img_per_id,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 249, in test
+    query_train_img_feats_mask = get_image_feature(query_image_dir, query_train_image_list, pretrained,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 55, in get_image_feature
+    model.bind(for_training=False, data_shapes=[('data', (batch_size, 3, image_size[0], image_size[1]))])
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/module.py", line 422, in bind
+    self._exec_group = DataParallelExecutorGroup(self._symbol, self._context,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 280, in __init__
+    self.bind_exec(data_shapes, label_shapes, shared_group)
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 383, in bind_exec
+    self.execs.append(self._bind_ith_exec(i, data_shapes_i, label_shapes_i,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 675, in _bind_ith_exec
+    executor = self.symbol.simple_bind(ctx=context, grad_req=self.grad_req,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1944, in simple_bind
+    raise RuntimeError(error_msg)
+RuntimeError: simple_bind error. Arguments:
+data: (500, 3, 112, 112)
+Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+[17:54:40] ../src/nnvm/legacy_json_util.cc:208: Loading symbol saved by previous version v1.2.1. Attempting to upgrade...
+[17:54:40] ../src/nnvm/legacy_json_util.cc:216: Symbol successfully upgraded!
+Namespace(gpu=-1, batch_size=100, lenth=10000, test_img_per_id=5, gallery_image_type='MF2', query_image_dir='../data/', query_train_image_list='../data/privacy_train_v3_10.lst', query_test_image_list='../data/privacy_test_v3_5.lst', gallery_noise_dir='../data/', gallery_noise_list='../data/common_distractor.lst', pretrained='./target_model/i1_webface_soft/model_s3,21', msk_dir='../generation/mask_out_Privacy_Commons/', img_train_save=None, img_test_save=None, log_save='./test_log/loss_log.log')
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1903, in simple_bind
+    check_call(_LIB.MXExecutorSimpleBindEx(self.handle,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/base.py", line 246, in check_call
+    raise get_last_ffi_error()
+mxnet.base.MXNetError: Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 306, in <module>
+    main(parse_arguments(sys.argv[1:]))
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 276, in main
+    test(args.query_image_dir, args.query_train_image_list, args.query_test_image_list, args.test_img_per_id,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 249, in test
+    query_train_img_feats_mask = get_image_feature(query_image_dir, query_train_image_list, pretrained,
+  File "/home/monsonv/AdvCloak/code/evaluation/test_privacy.py", line 55, in get_image_feature
+    model.bind(for_training=False, data_shapes=[('data', (batch_size, 3, image_size[0], image_size[1]))])
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/module.py", line 422, in bind
+    self._exec_group = DataParallelExecutorGroup(self._symbol, self._context,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 280, in __init__
+    self.bind_exec(data_shapes, label_shapes, shared_group)
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 383, in bind_exec
+    self.execs.append(self._bind_ith_exec(i, data_shapes_i, label_shapes_i,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/module/executor_group.py", line 675, in _bind_ith_exec
+    executor = self.symbol.simple_bind(ctx=context, grad_req=self.grad_req,
+  File "/home/monsonv/AdvCloak/venv-TAI/lib/python3.10/site-packages/mxnet/symbol/symbol.py", line 1944, in simple_bind
+    raise RuntimeError(error_msg)
+RuntimeError: simple_bind error. Arguments:
+data: (100, 3, 112, 112)
+Traceback (most recent call last):
+  File "../include/mxnet/base.h", line 414
+MXNetError: Please compile with CUDA enabled for cuda features

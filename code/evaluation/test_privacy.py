@@ -44,8 +44,8 @@ def get_image_feature(img_dir, img_list_path, pretrained, gpu_id, batch_size, im
                       mask = None, img_save = None):
     img_list = open(img_list_path)
     #print('loading', model_path, model_num)
-    # ctx = mx.gpu(gpu_id)
-    ctx = mx.cpu()
+    ctx = mx.gpu(gpu_id)
+    # ctx = mx.cpu()
     vec = pretrained.split(',')
     sym, arg_params, aux_params = mx.model.load_checkpoint(vec[0], int(vec[1]))
     all_layers = sym.get_internals()

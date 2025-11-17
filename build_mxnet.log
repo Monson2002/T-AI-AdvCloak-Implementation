@@ -1,0 +1,89 @@
+nohup: ignoring input
+=== MXNet GPU Build Script (CUDA 12.x + Python Virtual Env) ===
+[1/7] Installing Python dependencies...
+Requirement already satisfied: setuptools in ./venv-TAI/lib/python3.10/site-packages (80.9.0)
+Requirement already satisfied: wheel in ./venv-TAI/lib/python3.10/site-packages (0.45.1)
+Requirement already satisfied: numpy in ./venv-TAI/lib/python3.10/site-packages (2.2.6)
+Requirement already satisfied: cython in ./venv-TAI/lib/python3.10/site-packages (3.2.1)
+Requirement already satisfied: requests in ./venv-TAI/lib/python3.10/site-packages (2.32.5)
+Requirement already satisfied: opencv-python in ./venv-TAI/lib/python3.10/site-packages (4.12.0.88)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./venv-TAI/lib/python3.10/site-packages (from requests) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in ./venv-TAI/lib/python3.10/site-packages (from requests) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./venv-TAI/lib/python3.10/site-packages (from requests) (2.2.1)
+Requirement already satisfied: certifi>=2017.4.17 in ./venv-TAI/lib/python3.10/site-packages (from requests) (2024.2.2)
+
+[notice] A new release of pip is available: 25.2 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+[2/7] Cloning MXNet...
+Switched to a new branch 'v1.x'
+M	3rdparty/dlpack
+M	3rdparty/dmlc-core
+M	3rdparty/googletest
+M	3rdparty/intgemm
+M	3rdparty/nvidia_cub
+Branch 'v1.x' set up to track remote branch 'v1.x' from 'origin'.
+[3/7] Creating build directory...
+[4/7] Configuring CMake for CUDA 12.x...
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- CMAKE_CROSSCOMPILING FALSE
+-- CMAKE_HOST_SYSTEM_PROCESSOR x86_64
+-- CMAKE_SYSTEM_PROCESSOR x86_64
+-- CMAKE_SYSTEM_NAME Linux
+-- CMake version '3.26.1' using generator 'Unix Makefiles'
+-- Looking for a CUDA compiler
+-- Looking for a CUDA compiler - /usr/local/cuda-12.2/bin/nvcc
+CMake Warning at CMakeLists.txt:127 (message):
+  CMAKE_CUDA_COMPILER guessed: /usr/local/cuda/bin/nvcc
+
+
+-- The CUDA compiler identification is NVIDIA 12.2.91
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Could not find CCache. Consider installing CCache to speed up compilation.
+-- Performing Test SUPPORT_CXX11
+-- Performing Test SUPPORT_CXX11 - Success
+-- Performing Test SUPPORT_CXX0X
+-- Performing Test SUPPORT_CXX0X - Success
+CMake Error at CMakeLists.txt:345 (add_subdirectory):
+  The source directory
+
+    /home/monsonv/AdvCloak/mxnet/3rdparty/mkldnn
+
+  does not contain a CMakeLists.txt file.
+Call Stack (most recent call first):
+  CMakeLists.txt:347 (load_mkldnn)
+
+
+-- Using intgemm
+CMake Error at CMakeLists.txt:360 (add_subdirectory):
+  The source directory
+
+    /home/monsonv/AdvCloak/mxnet/3rdparty/intgemm
+
+  does not contain a CMakeLists.txt file.
+
+
+-- Could NOT find MKL (missing: MKL_INCLUDE_DIR MKL_RT_LIBRARY) 
+-- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+CMake Error at cmake/Modules/FindOpenBLAS.cmake:82 (MESSAGE):
+  Could not find OpenBLAS
+Call Stack (most recent call first):
+  cmake/ChooseBlas.cmake:42 (find_package)
+  CMakeLists.txt:368 (include)
+
+
+-- Configuring incomplete, errors occurred!

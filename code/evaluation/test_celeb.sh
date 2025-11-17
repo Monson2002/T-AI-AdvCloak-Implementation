@@ -1,4 +1,4 @@
-python3 test_privacy.py --gpu -1 --batch-size 500  --query_image_dir ../data/ --gallery_image_type lfw --lenth 13233 --gallery_noise_dir ../data/lfw_112x112/ --gallery_noise_list ../data/lfw.txt --msk_dir ../generation/mask_out_Privacy_Celebs/ --pretrained ./target_model/r50_webface_arc_bs/model,146 --query_test_image_list ../data/privacy_ms90w_test.lst --test_img_per_id 10 
+python3 test_privacy.py --gpu 2 --batch-size 500  --query_image_dir ../data/ --gallery_image_type lfw --lenth 13233 --gallery_noise_dir ../data/lfw_112x112/ --gallery_noise_list ../data/lfw.txt --msk_dir ../generation/mask_out_Privacy_Celebs/ --pretrained ./target_model/r50_webface_arc_bs/model,146 --query_test_image_list ../data/privacy_ms90w_test.lst --test_img_per_id 10 
 
 # python3 test_privacy.py --gpu 2 --batch-size 500  --query_image_dir ../data/ --gallery_image_type lfw --lenth 13233 --gallery_noise_dir ../data/lfw_112x112/ --gallery_noise_list ../data/lfw.txt --msk_dir ../generation/mask_out/ --pretrained ./target_model/r50_webface_cos_bs/model,82 --query_test_image_list ../data/privacy_ms90w_test.lst --test_img_per_id 10 
 
